@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 使い方の質問・雑談
+    url: https://github.com/taizoy0725/roman/discussions
+    about: 不具合や要望ではないご質問は Discussions へお願いします
+  - name: ユーザマニュアル
+    url: https://github.com/taizoy0725/roman/blob/main/docs/manual.md
+    about: 操作方法・設定・トラブルシューティングはこちら
+  - name: セキュリティ上の問題の報告
+    url: https://github.com/taizoy0725/roman/security/advisories/new
+    about: 脆弱性は公開 Issue ではなく、こちらから非公開でご報告ください
