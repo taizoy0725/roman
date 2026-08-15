@@ -2,7 +2,7 @@
 
 Roman が使用する全コンポーネントの出自・ライセンスと、義務の履行状況の記録。 コンポーネントは **配布物 (.pkg) に同梱するもの** と **同梱せず利用者のマシン上の別ソフトとして使うもの** に分かれ、 再配布に伴う義務が生じるのは前者だけである。
 
-最終確認: 2026-08-12(v1.01 の配布物 — `native/ime/release.sh` が生成する pkg の実同梱物 — に基づく。Llama-3-ELYZA-JP-8B は削除済み)。
+最終確認: 2026-08-15(v1.07 の配布物 — `native/ime/release.sh` が生成する pkg を展開した実同梱物 — に基づく。同梱物の版・ライセンス文書の実在をすべて実物で照合した。Llama-3-ELYZA-JP-8B は削除済みで、同梱するモデルは zenz-v3-small のみ)。
 
 ## 同梱するコンポーネント
 
@@ -10,7 +10,7 @@ Roman が使用する全コンポーネントの出自・ライセンスと、�
 
 | コンポーネント | 版 | 役割 | 配布物内の位置 | ライセンス | 義務と履行状況 |
 | --- | --- | --- | --- | --- | --- |
-| Roman 本体(入力メソッド・変換サーバ・辞書構築物) | 1.01 | — | `Roman.app` / `server/` | 作者が定める利用条件(All rights reserved) | 利用条件は [TERMS.md](../TERMS.md) |
+| Roman 本体(入力メソッド・変換サーバ・辞書構築物) | 1.07 | — | `Roman.app` / `server/` | 作者が定める利用条件(All rights reserved) | 利用条件は [TERMS.md](../TERMS.md) |
 | zenz-v3-small (GGUF) | — | かな漢字変換モデル (95M / 72MB)。辞書ラティスが実変換を出せない読み(新語など)を担う | `runtime/zenz-v3-small.gguf` | CC BY-SA 4.0 | 作者表示 (Miwa Keita) → 帰属表示を `docs/NOTICE.md` に同梱。**本一覧で最も注意が必要** — 詳細は下記の専用節 |
 | llama.cpp (llama-server と共有ライブラリ) | b9960 | zenz と Qwen の推論ランタイム | `runtime/llama.cpp/` | MIT | 著作権表示とライセンス文の保持 → 上流の原文を `runtime/llama.cpp/LICENSE` としてそのまま同梱 |
 | Node.js ランタイム | v22.23.2 | 変換サーバの実行系 | `runtime/node/node` | MIT 系(同梱依存の個別表示を含む) | 公式配布物の LICENSE 全文(OpenSSL・ICU 等の表示を含む)を `runtime/node/LICENSE` としてそのまま同梱 |
