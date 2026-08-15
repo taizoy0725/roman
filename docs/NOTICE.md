@@ -20,6 +20,7 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `org-names.tsv` | 組織名リスト(Wikidata 由来) | CC0 1.0(保持義務なし。下記参照) |
 | `med-disease.tsv` | 病名・症状(万病辞書 由来) | CC BY 4.0(下記の帰属表示) |
 | `katakana-drug.tsv` | 医薬品の成分名(厚生労働省の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
+| `corp.tsv` | 上場会社名(金融庁 EDINET の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
 | `idiom.tsv` | 慣用句・ことわざ・四字熟語(JMdict 由来) | CC BY-SA 4.0(下記の帰属表示) |
 | `katakana-it.tsv` / `extra.tsv` / `particles.tsv` / `noun-types.tsv` / 各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
 
@@ -185,6 +186,15 @@ CC BY 4.0 に share-alike 条項は無いため、Roman 本体および他の同
 - **URL**: https://www.mhlw.go.jp/topics/2026/04/tp20260401-01.html ・ https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryouhoken/shohosen_250401.html
 - **利用条件**: 公共データ利用規約(第1.0版) https://www.mhlw.go.jp/chosakuken/index.html
 - **加工の有無**: **加工している。** 成分名の列からカタカナ表記のものだけを抜き出し、読み(ひらがな)を機械導出して一覧にした。**本一覧は Roman が加工したものであり、厚生労働省が作成・公表したものではない**
+
+## 上場会社名リスト — 公共データ利用規約 (第1.0版) の出典表示
+
+配布物内の `server/dict/corp.tsv` に適用される。 同規約は出典の記載と、加工した場合にその旨の記載を求めている(国が作成したかのように表示してはならない)。
+
+- **出典**: 金融庁 EDINET「EDINETコードリスト」(`EdinetcodeDlInfo.csv` / 2026-08-15 取得)
+- **URL**: https://disclosure2dl.edinet-fsa.go.jp/guide/static/disclosure/WZEK0030.html
+- **利用条件**: 公共データ利用規約(第1.0版)。EDINET の利用規約が同規約に準拠する旨を定めている
+- **加工の有無**: **加工している。** 上場区分が「上場」の提出者だけを抜き出し、提出者名から「株式会社」等を、提出者名(ヨミ)から対応するヨミを除去したうえで、ヨミをひらがなへ機械変換して読みとし、変換の実測で必要と確認できた 884 社に絞って一覧にした。**本一覧は Roman が加工したものであり、金融庁が作成・公表したものではない**
 
 ## 辞書以外の同梱物 — 条文原文の所在
 
