@@ -28,7 +28,7 @@ Roman が使用する全コンポーネントの出自・ライセンスと、�
 
 | コンポーネント | 役割 | 出自 | ライセンス |
 | --- | --- | --- | --- |
-| Qwen2.5-7B-Instruct (GGUF) | 候補の裁定 LLM(僅差の文節解を全文で選び直す)。同梱の llama-server で動かす | [Qwen/Qwen2.5-7B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF) | Apache 2.0(Qwen2.5 系は 3B/72B のみ独自ライセンス。7B は Apache 2.0 確認済み) |
+| Qwen3.5-4B (GGUF・4ビット量子化) | 候補の裁定 LLM(僅差の文節解を全文で選び直す)。同梱の llama-server で動かす | 元モデル [Qwen/Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B)。GGUF 化と4ビット量子化は本プロジェクトで実施し、[Release](https://github.com/taizoy0725/roman/releases/tag/models-qwen3.5-4b) から配布(2分割) | Apache 2.0(**改変あり**: llama.cpp による GGUF 変換と q4_k_m 量子化。変換器は llama.cpp 01818e4 / 2026-08-17) |
 | bert-base-japanese-v3 | 候補の自然さ採点 (PLL) | [tohoku-nlp/bert-base-japanese-v3](https://huggingface.co/tohoku-nlp/bert-base-japanese-v3) | Apache 2.0 |
 | PyTorch / Transformers / fugashi / unidic-lite | BERT の推論ランタイム。同梱 Python で作る venv (`state/bert-venv`) へ導入する | PyPI | BSD-3 / Apache 2.0 / BSD ほか |
 | ollama (任意) | 既に導入済みの場合はそちらを尊重して使う。Roman が入れることはない | [ollama/ollama](https://github.com/ollama/ollama) | MIT |
@@ -84,7 +84,7 @@ Roman が使用する全コンポーネントの出自・ライセンスと、�
 ## 履行状況のチェックリスト
 
 - [x] 推論ランタイムの整理 — zenz と裁定用の Qwen は、どちらも同梱の llama-server で動かす (2026-08-12 第2段。ollama への依存を解消)
-- [x] Qwen (4.7GB) は同梱せず、初回起動時に利用者の許諾を得て公式配布元 (Hugging Face, Apache 2.0) から取得する — GitHub Release の 1ファイル 2GiB 上限と、macOS 15 の pkg スクリプト 600 秒タイムアウトのため (2026-08-12)
+- [x] Qwen (2.8GB) は同梱せず、初回起動時に利用者の許諾を得て本プロジェクトの Release から取得する — GitHub Release の 1ファイル 2GiB 上限と、macOS 15 の pkg スクリプト 600 秒タイムアウトのため (2026-08-12)
 - [x] BERT の実行環境 — Python (python-build-standalone) を同梱し、初回起動時に venv を構築する。同梱 Python の署名には `disable-library-validation` が必須 (torch の dylib は別 Team ID / 2026-08-12 第3段)
 - [x] 同梱する各版の LICENSE 原文を .pkg に収録 — llama.cpp / Node.js / node_modules 各パッケージ / 辞書データの [NOTICE.md](NOTICE.md)
 - [x] zenz の帰属表示を配布物内に置く — [NOTICE.md](NOTICE.md) に専用節を設け、`docs/NOTICE.md` として同梱する。 公開リポジトリの README.md からの参照だけでは第3条(a)(1) を満たさないため (2026-08-11)
