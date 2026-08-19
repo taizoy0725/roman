@@ -21,6 +21,7 @@ Roman が使用する全コンポーネントの出自・ライセンスと、�
 | 病名・症状リスト(万病辞書 由来) | MANBYO_202106 | 病名・症状の変換 | `server/dict/med-disease.tsv` | CC BY 4.0 | 作者表示と改変の明示 → [NOTICE.md](NOTICE.md) に帰属表示を掲載。share-alike 条項は無く、他の同梱物に波及しない |
 | 医薬品の成分名リスト(厚生労働省の公表資料 由来) | 2026-08-01 適用版ほか | 医薬品名の変換 | `server/dict/katakana-drug.tsv` | 公共データ利用規約(第1.0版) | 出典の記載と加工の明示 → [NOTICE.md](NOTICE.md) に記載 |
 | 慣用句・ことわざリスト(JMdict 由来) | 2026-08-12 取得版 | 慣用句・ことわざ・四字熟語の変換 | `server/dict/idiom.tsv` | CC BY-SA 4.0 | 帰属表示と share-alike → [NOTICE.md](NOTICE.md) に帰属表示。share-alike は本ファイル自体に適用され (CC BY-SA のまま配布)、他の同梱物へは及ばない |
+| 固有名詞リスト(JMnedict 由来) | 2026-08-19 取得版 | 人物の姓名・地名・駅名・組織名・会社名の変換 | `server/dict/names-jmnedict.tsv` | CC BY-SA 4.0 | 帰属表示と share-alike → [NOTICE.md](NOTICE.md) に帰属表示。share-alike は本ファイル自体に適用され (CC BY-SA のまま配布)、他の同梱物へは及ばない |
 
 ## 同梱しないコンポーネント(利用者のマシン上の別ソフト)
 

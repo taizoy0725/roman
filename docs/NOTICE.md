@@ -22,6 +22,7 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `katakana-drug.tsv` | 医薬品の成分名(厚生労働省の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
 | `corp.tsv` | 上場会社名(金融庁 EDINET の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
 | `idiom.tsv` | 慣用句・ことわざ・四字熟語(JMdict 由来) | CC BY-SA 4.0(下記の帰属表示) |
+| `names-jmnedict.tsv` | 固有名詞 — 人物の姓名・地名・駅名・組織名・会社名(JMnedict 由来) | CC BY-SA 4.0(下記の帰属表示) |
 | `katakana-it.tsv` / `extra.tsv` / `particles.tsv` / `noun-types.tsv` / 各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
 
 なお、同梱する形態素解析器 kuromoji.js の辞書 mecab-ipadic-2.7.0 にも、下記 「IPAdic (NAIST) / ICOT Free Software」と**同一の条文**が適用される。 上流パッケージの `NOTICE.md` が配布物内 (`server/node_modules/kuromoji/`) に そのまま含まれている。
@@ -177,6 +178,20 @@ CC BY 4.0 に share-alike 条項は無いため、Roman 本体および他の同
 - **改変の有無**: **改変している。** 慣用句・ことわざ・四字熟語のタグ (proverb / id / yoji) が付いたエントリだけを採り、表記と読み (reb) を Roman の辞書形式へ変換した。抽出条件は開発用リポジトリの `server/tools/extract-idiom.py` に記録している
 - **元データの版**: JMdict 2026-08-11 生成版 (idiom.tsv の1行目に記録)
 - **更新**: EDRDG の利用許諾 第4条は「最新版からの定期更新の手続き」を義務としている (WWW サーバの例示は月1回。守らないことはライセンス違反と明記されている)。Roman の手続き — **リリースビルド (release.sh) は、元データの生成日が90日より古いとビルドを中止する**。更新は JMdict_e.gz を再取得し extract-idiom.py を再実行する
+
+## 固有名詞リスト — CC BY-SA 4.0 の帰属表示
+
+配布物内の `server/dict/names-jmnedict.tsv` に適用される。 この抽出物は JMnedict の派生物であり、CC BY-SA 4.0 の share-alike 条項により**本ファイル自体も CC BY-SA 4.0 で配布される** (idiom.tsv と同じ扱い。[TERMS.md](../TERMS.md) 第3条の再配布・改変の禁止は第4条のとおり本ファイルには適用されない)。share-alike が及ぶのは本ファイルまでで、Roman 本体および他の同梱物には及ばない。
+
+- **作品**: JMnedict (Japanese Multilingual Named Entity Dictionary / ENAMDICT)
+- **著作権者**: Electronic Dictionary Research and Development Group (EDRDG) / James William Breen
+- **出典**: https://www.edrdg.org/enamdict/enamdict_doc.html
+- **ライセンス**: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+- **利用許諾**: https://www.edrdg.org/edrdg/licence.html
+- **条文**: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+- **改変の有無**: **改変している。** 種別が 人物の姓名 (person)・地名 (place)・駅名 (station)・組織名 (organization)・会社名 (company) のエントリだけを採り、表記と読み (reb) を Roman の辞書形式へ変換した。姓・名の単独 (surname / given / fem / masc) と unclass は採っていない。抽出条件は開発用リポジトリの `server/tools/extract-names.py` に記録している
+- **元データの版**: JMnedict 2026-08-19 生成版 (names-jmnedict.tsv の1行目に記録)
+- **更新**: idiom.tsv と同じ手続き — **リリースビルド (release.sh) は、元データの生成日が90日より古いとビルドを中止する**。更新は JMnedict.xml.gz を再取得し extract-names.py を再実行する
 
 ## 医薬品の成分名リスト — 公共データ利用規約 (第1.0版) の出典表示
 
