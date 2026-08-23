@@ -322,13 +322,17 @@ launchctl bootout gui/$(id -u)/com.mobazou.roman.server; rm -f ~/Library/LaunchA
 | 3 | 病名・症状リスト | 万病辞書（奈良先端科学技術大学院大学）に由来 | CC BY 4.0 |
 | 4 | 医薬品の成分名リスト | 厚生労働省の公表資料に由来（Roman が加工したもので、同省が作成・公表したものではありません） | 公共データ利用規約（第1.0版） |
 | 5 | 慣用句・ことわざリスト | JMdict（EDRDG）に由来 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| 6 | 顔文字リスト | mozc の OSS データに由来 | BSD-3-Clause |
-| 7 | zenz-v3-small | かな漢字変換モデル © Miwa Keita。モデルの重みのみを無改変で同梱 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| 8 | llama.cpp | zenz と Qwen を動かす推論ランタイム | MIT |
-| 9 | kuromoji.js | 形態素解析器。同梱辞書 mecab-ipadic には IPADIC 条項が適用される | Apache-2.0 |
-| 10 | lodash / async / doublearray / zlibjs | kuromoji.js が内部で使うライブラリ | MIT |
-| 11 | Node.js | 変換サーバの実行環境 | MIT |
-| 12 | CPython | BERT を動かす Python の実行環境 | PSF License |
+| 6 | 固有名詞リスト | 人物の姓名・地名・駅名・組織名・会社名。JMnedict（EDRDG）に由来 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 7 | 単漢字リスト | 常用漢字の音読み・訓読み。KANJIDIC2（EDRDG）に由来 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 8 | UniDic 移植辞書 | 現代書き言葉 UniDic（国立国語研究所）から移植した語。収録の選別に JMdict（EDRDG）を使用 | 修正BSD（UniDic）＋ [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 9 | 上場会社名リスト | 金融庁 EDINET コードリストに由来（Roman が加工したもので、同庁が作成・公表したものではありません） | 公共データ利用規約（第1.0版） |
+| 10 | 顔文字リスト | mozc の OSS データに由来 | BSD-3-Clause |
+| 11 | zenz-v3-small | かな漢字変換モデル © Miwa Keita。モデルの重みのみを無改変で同梱 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 12 | llama.cpp | zenz と Qwen を動かす推論ランタイム | MIT |
+| 13 | kuromoji.js | 形態素解析器。同梱辞書 mecab-ipadic には IPADIC 条項が適用される | Apache-2.0 |
+| 14 | lodash / async / doublearray / zlibjs | kuromoji.js が内部で使うライブラリ | MIT |
+| 15 | Node.js | 変換サーバの実行環境 | MIT |
+| 16 | CPython | BERT を動かす Python の実行環境 | PSF License |
 
 zenz-v3-small について同梱しているのはモデルの重みだけです。**zenz の辞書は同梱していません。** 上表の変換辞書はこれとは別に、mozc の OSS 辞書に由来するものです。
 
