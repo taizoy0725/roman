@@ -223,7 +223,7 @@ pkg をインストールすると、Roman 本体のほかに次のものが一�
 | 2 | PyTorch・transformers・fugashi・unidic-lite | BERT を動かすための Python パッケージ | PyPI | BSD-3 / Apache 2.0 ほか | 約 1.1 GB |
 | 3 | Qwen3.5-4B (GGUF・4ビット量子化) | 汎用の言語モデル | 元モデル: Alibaba Cloud / Qwen（Hugging Face）。変換・配布: 本プロジェクトの Release | Apache 2.0（改変あり） | 約 2.8 GB |
 
-合計 約 4.8 GB をダウンロードし、`~/Library/Application Support/Roman/state/` 配下に置きます。Roman をアンインストールすれば一緒に消えます。
+合計 約 4.8 GB をダウンロードし（Qwen を導入しない Mac では No.1・2 だけの 約 2.0 GB）、`~/Library/Application Support/Roman/state/` 配下に置きます。Roman をアンインストールすれば一緒に消えます。
 
 #### （1）BERT
 
@@ -244,11 +244,9 @@ Roman は同梱の Python だけを使い、お使いのマシンの Python 環�
 
 ##### モデルを使わない場合
 
-メモリが 24 GB 未満のマシンでは、Qwen を取得も常駐もしません (2026-08-28 変更。従来は 12 GB 未満)。この場合も**変換は動きます** — 辞書ラティスと BERT、zenz で変換し、文脈による選び直しだけが働かない状態になります。
+メモリが 24 GB 未満のマシンでは、Qwen を取得も常駐もしません (2.04 から)。この場合も**変換は動きます** — 辞書ラティスと BERT、zenz で変換し、文脈による選び直しだけが働かない状態になります。
 
 24 GB 以上のマシンでも、**Roman 設定の「裁定役 (Qwen) を使う」を外せば同じ状態にできます**。外すと常駐しているプロセスも終了し、約 5.5 GB が解放されます。入れ直せばその場で起動します。
-
-下限を 24 GB とした根拠は実測です。Roman 全体の常駐は 7.09 GB (うち Qwen が 5.52 GB)。一方、Qwen の裁定が実際に働いた 97 問を取り出し、利用者が最終的に確定した表記を正解として測ると、Qwen なし (辞書の判断に従う) 74% に対し Qwen あり 78% でした。5.5 GB を常駐させて得られるのは数ポイントであり、余裕のある機械に限る判断です。
 
 ---
 
@@ -297,7 +295,7 @@ launchctl bootout gui/$(id -u)/com.mobazou.roman.server; rm -f ~/Library/LaunchA
 
 入力ソースからの削除は、システム設定 > キーボード > 入力ソース > 編集 で行います。
 
-**Roman が入れたものはすべて上のコマンドで消えます** — 言語モデル（BERT・Qwen、約 5.6 GB）も Python の実行環境も `~/Library/Application Support/Roman/` の下にあるためです。学習データも同時に消えるので、残したい場合は先に `state/` フォルダをコピーしてください（[ユーザマニュアル §3.5 学習データの保存場所](docs/manual.md#学習データの保存場所)）。
+**Roman が入れたものはすべて上のコマンドで消えます** — 言語モデル（BERT・Qwen、実行環境を含め 約 4.8 GB。Qwen を導入していない Mac では 約 2.0 GB）も Python の実行環境も `~/Library/Application Support/Roman/` の下にあるためです。学習データも同時に消えるので、残したい場合は先に `state/` フォルダをコピーしてください（[ユーザマニュアル §3.5 学習データの保存場所](docs/manual.md#学習データの保存場所)）。
 
 **ご自身で別途入れたものだけは残ります。** 他の用途にも使うものなので、必要に応じて個別に消してください（Roman はこれらを消しません）。
 
@@ -305,7 +303,7 @@ launchctl bootout gui/$(id -u)/com.mobazou.roman.server; rm -f ~/Library/LaunchA
 |---|---|---|
 | 1 | ご自身で作った BERT の Python 環境 | `rm -rf ~/.roman-bert` |
 | 2 | ご自身で取得した BERT モデル | `rm -rf ~/.cache/huggingface/hub/models--tohoku-nlp--bert-base-japanese-v3` ※ |
-| 3 | ollama で入れた Qwen | `ollama rm qwen2.5:7b-instruct` ※ |
+| 3 | ollama で入れた Qwen | `ollama rm qwen3.5:4b` ※ |
 | 4 | ollama 本体 | `/Applications` の Ollama.app を削除 |
 
 ※ No.2 の `~/.cache/huggingface` と No.3 の `~/.ollama` には、Roman 以外で取得したモデルを入れた場合、それらも同じ場所に入っています。フォルダごと消さず、上表のとおり対象を選んで消してください。
