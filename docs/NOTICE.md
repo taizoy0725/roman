@@ -17,6 +17,7 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `mozc-pos.tsv` | mozc `id.def` の品詞ID→品詞名 | 同上 |
 | `katakana-mozc.tsv` / `general.tsv` / `verbs.tsv` | 上記からの機械抽出(カタカナ最有力読み・一般名詞・動詞基本形) | 同上 |
 | `kaomoji.tsv` | 顔文字(mozc `emoticon.tsv` 由来) | 上記 mozc 本体と同じ条文 |
+| `emoji.tsv` | 絵文字 — 収録と並び順は Unicode `emoji-test.txt` 由来、読みは mozc `emoji_data.tsv` 由来 | Unicode License v3(下記の帰属表示)＋ 上記 mozc 本体と同じ条文 |
 | `org-names.tsv` | 組織名リスト(Wikidata 由来) | CC0 1.0(保持義務なし。下記参照) |
 | `med-disease.tsv` | 病名・症状(万病辞書 由来) | CC BY 4.0(下記の帰属表示) |
 | `katakana-drug.tsv` | 医薬品の成分名(厚生労働省の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
@@ -262,6 +263,18 @@ CC BY 4.0 に share-alike 条項は無いため、Roman 本体および他の同
 | kuromoji.js | Apache-2.0 ＋ IPADIC | `server/node_modules/kuromoji/LICENSE-2.0.txt` ・ `NOTICE.md` |
 | lodash / async / doublearray / zlibjs | MIT | `server/node_modules/<各パッケージ>/LICENSE` |
 | zenz-v3-small (GGUF) | CC BY-SA 4.0 | 上流が LICENSE ファイルを配布していないため、下記の帰属表示をもって条件を満たす |
+
+## Unicode 絵文字データ — Unicode License v3 の帰属表示
+
+配布物内の `server/dict/emoji.tsv` のうち、**どの文字を収録するかと並び順**が Unicode の資料に由来する (読みの部分は mozc 由来で、上記 mozc 本体の条文が適用される)。
+
+- **作品**: Unicode® Emoji Keyboard/Display Test Data (`emoji-test.txt`) — Emoji Version 17.0 (2025-08-04)
+- **著作権表示**: © 2025 Unicode®, Inc.
+- **出典**: https://unicode.org/Public/emoji/latest/emoji-test.txt
+- **利用条件**: https://www.unicode.org/terms_of_use.html
+- **ライセンス条文**: https://www.unicode.org/license.txt (Unicode License v3)
+- **商標**: Unicode および Unicode ロゴは、米国その他の国における Unicode, Inc. の登録商標である
+- **改変の有無**: **改変している。** 原ファイルから完全修飾形の絵文字と並び順だけを取り出し、mozc 由来の読みと突き合わせて `emoji.tsv` を生成した。肌の色の変種は収録していない。原ファイルは同梱しない
 
 ## zenz-v3-small — CC BY-SA 4.0 の帰属表示
 

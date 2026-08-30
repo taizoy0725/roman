@@ -346,12 +346,13 @@ launchctl bootout gui/$(id -u)/com.mobazou.roman.server; rm -f ~/Library/LaunchA
 | 8 | UniDic 移植辞書 | 現代書き言葉 UniDic（国立国語研究所）から移植した語。収録の選別に JMdict（EDRDG）を使用 | 修正BSD（UniDic）＋ [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | 9 | 上場会社名リスト | 金融庁 EDINET コードリストに由来（Roman が加工したもので、同庁が作成・公表したものではありません） | 公共データ利用規約（第1.0版） |
 | 10 | 顔文字リスト | mozc の OSS データに由来 | BSD-3-Clause |
-| 11 | zenz-v3-small | かな漢字変換モデル © Miwa Keita。モデルの重みのみを無改変で同梱 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| 12 | llama.cpp | zenz と Qwen を動かす推論ランタイム | MIT |
-| 13 | kuromoji.js | 形態素解析器。同梱辞書 mecab-ipadic には IPADIC 条項が適用される | Apache-2.0 |
-| 14 | lodash / async / doublearray / zlibjs | kuromoji.js が内部で使うライブラリ | MIT |
-| 15 | Node.js | 変換サーバの実行環境 | MIT |
-| 16 | CPython | BERT を動かす Python の実行環境 | PSF License |
+| 11 | 絵文字リスト | 収録する字と並び順は Unicode の絵文字データ（Emoji 17.0）に、読みは mozc の OSS データに由来 | Unicode License v3 ＋ BSD-3-Clause |
+| 12 | zenz-v3-small | かな漢字変換モデル © Miwa Keita。モデルの重みのみを無改変で同梱 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+| 13 | llama.cpp | zenz と Qwen を動かす推論ランタイム | MIT |
+| 14 | kuromoji.js | 形態素解析器。同梱辞書 mecab-ipadic には IPADIC 条項が適用される | Apache-2.0 |
+| 15 | lodash / async / doublearray / zlibjs | kuromoji.js が内部で使うライブラリ | MIT |
+| 16 | Node.js | 変換サーバの実行環境 | MIT |
+| 17 | CPython | BERT を動かす Python の実行環境 | PSF License |
 
 zenz-v3-small について同梱しているのはモデルの重みだけです。**zenz の辞書は同梱していません。** 上表の変換辞書はこれとは別に、mozc の OSS 辞書に由来するものです。
 
