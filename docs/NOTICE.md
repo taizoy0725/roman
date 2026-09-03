@@ -19,6 +19,8 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `kaomoji.tsv` | 顔文字(mozc `emoticon.tsv` 由来) | 上記 mozc 本体と同じ条文 |
 | `emoji.tsv` | 絵文字 — 収録と並び順は Unicode `emoji-test.txt` 由来、読みは mozc `emoji_data.tsv` 由来 | Unicode License v3(下記の帰属表示)＋ 上記 mozc 本体と同じ条文 |
 | `org-names.tsv` | 組織名リスト(Wikidata 由来) | CC0 1.0(保持義務なし。下記参照) |
+| `org-conv.tsv` | 店名・企業名の変換用辞書(上記 `org-names.tsv` から読みを機械導出した生成物) | 同上(CC0 1.0) |
+| `katakana-conv.tsv` | 外来語の変換用辞書(上記 `katakana-mozc.tsv` のうち mozc 本体に無い語を写した生成物。語は UniDic 由来) | 上記 mozc 本体と同じ条文 ＋ 修正BSD(UniDic) |
 | `med-disease.tsv` | 病名・症状(万病辞書 由来) | CC BY 4.0(下記の帰属表示) |
 | `katakana-drug.tsv` | 医薬品の成分名(厚生労働省の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
 | `corp.tsv` | 上場会社名(金融庁 EDINET の公表資料 由来) | 公共データ利用規約(第1.0版)(下記の出典表示) |
@@ -26,7 +28,7 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `names-jmnedict.tsv` | 固有名詞 — 人物の姓名・地名・駅名・組織名・会社名(JMnedict 由来) | CC BY-SA 4.0(下記の帰属表示) |
 | `kanji.tsv` | 単漢字 — 常用漢字の音読み・訓読み(KANJIDIC2 由来) | CC BY-SA 4.0(下記の帰属表示) |
 | `unidic.tsv` | UniDic から移植した語(選別に JMdict を使用) | 修正BSD(UniDic)+ CC BY-SA 4.0(下記の帰属表示) |
-| `katakana-it.tsv` / `extra.tsv` / `particles.tsv` / `noun-types.tsv` / 各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
+| `katakana-it.tsv` / `extra.tsv` / `noun-types.tsv` / 各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
 
 なお、同梱する形態素解析器 kuromoji.js の辞書 mecab-ipadic-2.7.0 にも、下記 「IPAdic (NAIST) / ICOT Free Software」と**同一の条文**が適用される。 上流パッケージの `NOTICE.md` が配布物内 (`server/node_modules/kuromoji/`) に そのまま含まれている。
 
