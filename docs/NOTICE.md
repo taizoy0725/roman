@@ -29,7 +29,9 @@ Roman が同梱する変換辞書に適用されるライセンスの**条文原
 | `kanji.tsv` | 単漢字 — 常用漢字の音読み・訓読み(KANJIDIC2 由来) | CC BY-SA 4.0(下記の帰属表示) |
 | `unidic.tsv` | UniDic から移植した語(選別に JMdict を使用) | 修正BSD(UniDic)+ CC BY-SA 4.0(下記の帰属表示) |
 | `law-skk.tsv` | 法律用語(SKK-JISYO.law 由来) | GNU GPL v2 以降(下記の条文原文と帰属表示。**本ファイル自体は GPL で配布される**) |
-| `katakana-it.tsv` / `extra.tsv` / `noun-types.tsv` / 各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
+| `katakana-native-keep.tsv` | 候補に残すカタカナ表記のリスト — 動植物の和名と外来語(JMdict 由来 1,345 語 + 本プロジェクトで選んだ 59 語) | CC BY-SA 4.0(下記の帰属表示) |
+| `katakana-native-deny.tsv` | 漢字で書ける和語のカタカナ表記の禁止リスト(上記 mozc 本体から機械抽出した生成物) | 上記 mozc 本体と同じ条文 |
+| `katakana-it.tsv` / `extra.tsv` / `noun-types.tsv` / 上記以外の各 `*-deny.tsv` | 本プロジェクトで新規作成した語彙・規則リスト | 本プロジェクトに帰属(第三者条文の適用なし) |
 
 なお、同梱する形態素解析器 kuromoji.js の辞書 mecab-ipadic-2.7.0 にも、下記 「IPAdic (NAIST) / ICOT Free Software」と**同一の条文**が適用される。 上流パッケージの `NOTICE.md` が配布物内 (`server/node_modules/kuromoji/`) に そのまま含まれている。
 
@@ -184,6 +186,20 @@ CC BY 4.0 に share-alike 条項は無いため、Roman 本体および他の同
 - **改変の有無**: **改変している。** 慣用句・ことわざ・四字熟語のタグ (proverb / id / yoji) が付いたエントリだけを採り、表記と読み (reb) を Roman の辞書形式へ変換した。抽出条件は開発用リポジトリの `server/tools/extract-idiom.py` に記録している
 - **元データの版**: JMdict 2026-08-11 生成版 (idiom.tsv の1行目に記録)
 - **更新**: EDRDG の利用許諾 第4条は「最新版からの定期更新の手続き」を義務としている (WWW サーバの例示は月1回。守らないことはライセンス違反と明記されている)。Roman の手続き — **リリースビルド (release.sh) は、元データの生成日が90日より古いとビルドを中止する**。更新は JMdict_e.gz を再取得し extract-idiom.py を再実行する
+
+## 候補に残すカタカナ表記のリスト — CC BY-SA 4.0 の帰属表示
+
+配布物内の `server/dict/katakana-native-keep.tsv` に適用される。 このリストの大半 (1,345 語) は JMdict の派生物であり、CC BY-SA 4.0 の share-alike 条項により**本ファイル自体も CC BY-SA 4.0 で配布される** (idiom.tsv と同じ扱い。[TERMS.md](../TERMS.md) 第3条の再配布・改変の禁止は第4条のとおり本ファイルには適用されない)。share-alike が及ぶのは本ファイルまでで、Roman 本体および他の同梱物には及ばない。
+
+- **作品**: JMdict (Japanese-Multilingual Dictionary)
+- **著作権者**: Electronic Dictionary Research and Development Group (EDRDG) / James William Breen
+- **出典**: https://www.edrdg.org/jmdict/j_jmdict.html
+- **ライセンス**: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+- **利用許諾**: https://www.edrdg.org/edrdg/licence.html
+- **条文**: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+- **改変の有無**: **改変している。** (1) 植物学・動物学・鳥類学・昆虫学の分野タグが付くか、語義に学名 (属名+種小名) を含むエントリ (動植物の和名 853 語)、(2) カタカナ表記そのものが見出しで漢字表記を持たないエントリ (外来語・カタカナ語 492 語) のうち、読み (reb) が Roman の禁止対象の読みと一致するものだけを採り、読み・カタカナ表記・語義の先頭 60 字を Roman の一覧形式へ写した。抽出条件は開発用リポジトリの `server/tools/extract-katakana-keep.py` に記録している。残る 59 語は本プロジェクトで選んだ (3 列目に manual と記す)
+- **元データの版**: JMdict 2026-09-07 生成版 (katakana-native-keep.tsv の冒頭に記録)
+- **更新**: idiom.tsv と同じ手続き (JMdict_e.gz を再取得して一覧を作り直す)
 
 ## 固有名詞リスト — CC BY-SA 4.0 の帰属表示
 
